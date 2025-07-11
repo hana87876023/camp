@@ -34,63 +34,53 @@ export default function Header({ className }: HeaderProps) {
 
   const navigationItems = [
     { 
-      label: 'テント・シェルター', 
-      href: '/products/tents',
+      label: 'テント', 
+      href: '/products?category=tents',
       subcategories: [
-        { label: 'ワンタッチテント', href: '/products/tents/one-touch' },
-        { label: 'ドームテント', href: '/products/tents/dome' },
-        { label: 'タープ', href: '/products/tents/tarps' },
-        { label: 'スクリーンテント', href: '/products/tents/screen' },
+        { label: 'ワンタッチテント', href: '/products?category=tents' },
+        { label: 'ドームテント', href: '/products?category=tents' },
+        { label: 'タープ', href: '/products?category=tents' },
+        { label: 'スクリーンテント', href: '/products?category=tents' },
       ]
     },
     { 
-      label: '寝具・リラックス', 
-      href: '/products/sleeping',
+      label: '寝袋', 
+      href: '/products?category=sleeping',
       subcategories: [
-        { label: 'シュラフ', href: '/products/sleeping/sleeping-bags' },
-        { label: 'マット', href: '/products/sleeping/mats' },
-        { label: 'ピロー', href: '/products/sleeping/pillows' },
-        { label: 'ハンモック', href: '/products/sleeping/hammocks' },
+        { label: 'シュラフ', href: '/products?category=sleeping' },
+        { label: 'マット', href: '/products?category=sleeping' },
+        { label: 'ピロー', href: '/products?category=sleeping' },
+        { label: 'ハンモック', href: '/products?category=sleeping' },
       ]
     },
     { 
-      label: '調理・キッチン', 
-      href: '/products/cooking',
+      label: '調理器具', 
+      href: '/products?category=cooking',
       subcategories: [
-        { label: 'バーナー', href: '/products/cooking/stoves' },
-        { label: 'クッカー', href: '/products/cooking/cookware' },
-        { label: '食器', href: '/products/cooking/tableware' },
-        { label: 'クーラーボックス', href: '/products/cooking/coolers' },
+        { label: 'バーナー', href: '/products?category=cooking' },
+        { label: 'クッカー', href: '/products?category=cooking' },
+        { label: '食器', href: '/products?category=cooking' },
+        { label: 'クーラーボックス', href: '/products?category=cooking' },
       ]
     },
     { 
-      label: 'ファニチャー', 
-      href: '/products/furniture',
+      label: 'ライト', 
+      href: '/products?category=lighting',
       subcategories: [
-        { label: 'チェア', href: '/products/furniture/chairs' },
-        { label: 'テーブル', href: '/products/furniture/tables' },
-        { label: 'ラック', href: '/products/furniture/racks' },
-        { label: '収納', href: '/products/furniture/storage' },
+        { label: 'ランタン', href: '/products?category=lighting' },
+        { label: 'ヘッドライト', href: '/products?category=lighting' },
+        { label: 'ポータブル電源', href: '/products?category=lighting' },
+        { label: 'ソーラーパネル', href: '/products?category=lighting' },
       ]
     },
     { 
-      label: '照明・電源', 
-      href: '/products/lighting',
+      label: 'バックパック', 
+      href: '/products?category=gear',
       subcategories: [
-        { label: 'ランタン', href: '/products/lighting/lanterns' },
-        { label: 'ヘッドライト', href: '/products/lighting/headlamps' },
-        { label: 'ポータブル電源', href: '/products/lighting/power-stations' },
-        { label: 'ソーラーパネル', href: '/products/lighting/solar-panels' },
-      ]
-    },
-    { 
-      label: 'アパレル・ギア', 
-      href: '/products/gear',
-      subcategories: [
-        { label: 'アウトドアウェア', href: '/products/gear/clothing' },
-        { label: 'バックパック', href: '/products/gear/backpacks' },
-        { label: 'シューズ', href: '/products/gear/shoes' },
-        { label: 'アクセサリー', href: '/products/gear/accessories' },
+        { label: 'アウトドアウェア', href: '/products?category=gear' },
+        { label: 'バックパック', href: '/products?category=gear' },
+        { label: 'シューズ', href: '/products?category=gear' },
+        { label: 'アクセサリー', href: '/products?category=gear' },
       ]
     },
   ]
