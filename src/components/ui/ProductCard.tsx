@@ -14,12 +14,14 @@ interface ProductCardProps {
   showQuickView?: boolean
   showCompare?: boolean
   showWishlist?: boolean
+  onClick?: () => void
 }
 
 export default function ProductCard({ 
   product,
   showQuickView = true,
-  showWishlist = true
+  showWishlist = true,
+  onClick
 }: ProductCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -29,8 +31,9 @@ export default function ProductCard({
   }
 
   const handleQuickView = () => {
-    // Quick view modal logic
-    console.log('Quick view:', product.id)
+    if (onClick) {
+      onClick()
+    }
   }
 
   const handleAddToCart = () => {
