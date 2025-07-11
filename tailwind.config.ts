@@ -1,0 +1,145 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#2D5016',
+          50: '#F2F7F0',
+          100: '#E5F0E0',
+          200: '#CBE0C1',
+          300: '#B1D1A2',
+          400: '#97C183',
+          500: '#7DB164',
+          600: '#63A145',
+          700: '#4A7A33',
+          800: '#2D5016',
+          900: '#1A300D',
+        },
+        secondary: {
+          DEFAULT: '#8FBC8F',
+          50: '#F7FBF7',
+          100: '#EFF7EF',
+          200: '#DFEFDF',
+          300: '#CFE7CF',
+          400: '#BFDFBF',
+          500: '#AFD7AF',
+          600: '#9FCF9F',
+          700: '#8FBC8F',
+          800: '#6B9A6B',
+          900: '#477847',
+        },
+        accent: {
+          DEFAULT: '#FF6B35',
+          50: '#FFF7F5',
+          100: '#FFEFEB',
+          200: '#FFDFD7',
+          300: '#FFCFC3',
+          400: '#FFBFAF',
+          500: '#FFAF9B',
+          600: '#FF9F87',
+          700: '#FF8F73',
+          800: '#FF7F5F',
+          900: '#FF6B35',
+        },
+        neutral: {
+          DEFAULT: '#F5F5DC',
+          50: '#FDFDF9',
+          100: '#FBFBF3',
+          200: '#F9F9ED',
+          300: '#F7F7E7',
+          400: '#F5F5E1',
+          500: '#F5F5DC',
+          600: '#E9E9C6',
+          700: '#DDDDB0',
+          800: '#D1D19A',
+          900: '#C5C584',
+        },
+        dark: {
+          DEFAULT: '#1A1A1A',
+          50: '#F0F0F0',
+          100: '#E0E0E0',
+          200: '#C0C0C0',
+          300: '#A0A0A0',
+          400: '#808080',
+          500: '#606060',
+          600: '#404040',
+          700: '#2A2A2A',
+          800: '#1A1A1A',
+          900: '#0F0F0F',
+        },
+      },
+      fontFamily: {
+        'heading': ['Inter', 'Poppins', 'system-ui', 'sans-serif'],
+        'body': ['Inter', 'system-ui', 'sans-serif'],
+        'accent': ['Oswald', 'Inter', 'sans-serif'],
+      },
+      fontWeight: {
+        'heading-light': '600',
+        'heading-normal': '700',
+        'heading-bold': '800',
+        'body-light': '400',
+        'body-normal': '500',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in',
+        'fade-out': 'fadeOut 0.5s ease-out',
+        'slide-in': 'slideIn 0.5s ease-out',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'bounce-in': 'bounceIn 0.6s ease-out',
+        'campfire': 'campfire 2s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        slideIn: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        bounceIn: {
+          '0%': { transform: 'scale(0.3)', opacity: '0' },
+          '50%': { transform: 'scale(1.05)' },
+          '70%': { transform: 'scale(0.9)' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        campfire: {
+          '0%, 100%': { transform: 'rotate(0deg) scale(1)' },
+          '25%': { transform: 'rotate(1deg) scale(1.05)' },
+          '50%': { transform: 'rotate(0deg) scale(1.1)' },
+          '75%': { transform: 'rotate(-1deg) scale(1.05)' },
+        },
+      },
+      boxShadow: {
+        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.06)',
+      },
+      backdropBlur: {
+        'xs': '2px',
+      },
+      screens: {
+        'xs': '375px',
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
