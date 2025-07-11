@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, Mountain, Tent, Compass } from 'lucide-react'
 import Link from 'next/link'
@@ -61,10 +61,6 @@ export default function HeroSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
     },
   }
 
@@ -140,18 +136,20 @@ export default function HeroSection() {
             {/* Icon */}
             <motion.div
               variants={itemVariants}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex justify-center mb-6"
             >
               <div className="w-16 h-16 bg-primary/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                {slides[currentSlide].icon && (
-                  <slides[currentSlide].icon className="w-8 h-8 text-primary" />
-                )}
+                {slides[currentSlide].icon && 
+                  React.createElement(slides[currentSlide].icon, { className: "w-8 h-8 text-primary" })
+                }
               </div>
             </motion.div>
 
             {/* Title */}
             <motion.h1
               variants={itemVariants}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-7xl font-heading font-heading-bold mb-4"
             >
               {slides[currentSlide].title}
@@ -160,6 +158,7 @@ export default function HeroSection() {
             {/* Subtitle */}
             <motion.h2
               variants={itemVariants}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="text-xl md:text-2xl lg:text-3xl font-heading font-heading-light mb-6 text-accent"
             >
               {slides[currentSlide].subtitle}
@@ -168,6 +167,7 @@ export default function HeroSection() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
               className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
             >
               {slides[currentSlide].description}
@@ -176,6 +176,7 @@ export default function HeroSection() {
             {/* CTA Button */}
             <motion.div
               variants={itemVariants}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               className="flex justify-center space-x-4"
             >
               <Link
