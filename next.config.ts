@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
     ],
   },
   trailingSlash: false,
+  // Vercelデプロイ時の互換性を向上
+  poweredByHeader: false,
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 export default nextConfig;
