@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Filter, Search, Grid, List, X } from 'lucide-react'
@@ -9,7 +9,7 @@ import ProductDetail from '@/components/ui/ProductDetail'
 import { mockProducts, productCategories, priceRanges } from '@/data/products'
 import { Product } from '@/types'
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams()
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedPriceRange, setSelectedPriceRange] = useState('all')
@@ -291,5 +291,40 @@ export default function ProductsPage() {
         )}
       </AnimatePresence>
     </div>
+  )
+}
+
+// Loading component
+function ProductsLoading() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-white shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="h-8 bg-gray-200 rounded w-32 animate-pulse"></div>
+        </div>
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="bg-white rounded-lg shadow-sm overflow-hidden">
+              <div className="aspect-square bg-gray-200 animate-pulse"></div>
+              <div className="p-4 space-y-3">
+                <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded w-2/3 animate-pulse"></div>
+                <div className="h-6 bg-gray-200 rounded w-1/2 animate-pulse"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<ProductsLoading />}>
+      <ProductsContent />
+    </Suspense>
   )
 }
