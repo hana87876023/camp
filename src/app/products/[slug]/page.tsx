@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { use } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
@@ -8,13 +8,14 @@ import ProductDetail from '@/components/ui/ProductDetail'
 import { mockProducts } from '@/data/products'
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export default function ProductPage({ params }: ProductPageProps) {
-  const product = mockProducts.find(p => p.slug === params.slug)
+  const resolvedParams = use(params)
+  const product = mockProducts.find(p => p.slug === resolvedParams.slug)
 
   if (!product) {
     notFound()
