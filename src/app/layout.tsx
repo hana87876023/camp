@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://campgear.jp"),
+  metadataBase: new URL("https://canp.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://campgear.jp",
+    url: "https://canp.vercel.app",
     title: "CampGear - 最高品質のキャンピング用品",
     description: "アウトドア愛好家のための厳選されたキャンピング用品を提供します。",
     siteName: "CampGear",

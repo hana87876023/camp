@@ -15,7 +15,7 @@ export default function HeroSection() {
       description: "アウトドア愛好家のための厳選されたギアで、忘れられない冒険を",
       cta: "商品を見る",
       ctaLink: "/products",
-      backgroundImage: "/images/hero-1.jpg",
+      backgroundImage: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
       icon: Mountain
     },
     {
@@ -24,7 +24,7 @@ export default function HeroSection() {
       description: "初心者からベテランまで、すべてのキャンパーに最適な装備を",
       cta: "カテゴリーを見る", 
       ctaLink: "/categories",
-      backgroundImage: "/images/hero-2.jpg",
+      backgroundImage: "https://images.unsplash.com/photo-1471115853179-bb1d604434e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
       icon: Tent
     },
     {
@@ -33,7 +33,7 @@ export default function HeroSection() {
       description: "厳しい自然環境でも安心して使える、耐久性抜群のアイテム",
       cta: "ガイドを見る",
       ctaLink: "/guide",
-      backgroundImage: "/images/hero-3.jpg",
+      backgroundImage: "https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
       icon: Compass
     }
   ]
