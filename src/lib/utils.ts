@@ -28,6 +28,7 @@ export function slugify(text: string): string {
     .replace(/^-+|-+$/g, '')
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function debounce<T extends (...args: any[]) => void>(
   func: T,
   delay: number
