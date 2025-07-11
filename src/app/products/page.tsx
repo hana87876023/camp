@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Filter, Search, Grid, List, ChevronDown, X } from 'lucide-react'
+import { Filter, Search, Grid, List, X } from 'lucide-react'
 import ProductCard from '@/components/ui/ProductCard'
 import ProductDetail from '@/components/ui/ProductDetail'
 import { mockProducts, productCategories, priceRanges } from '@/data/products'

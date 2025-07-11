@@ -1,6 +1,8 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import ProductDetail from '@/components/ui/ProductDetail'
 import { mockProducts } from '@/data/products'
@@ -24,13 +26,13 @@ export default function ProductPage({ params }: ProductPageProps) {
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex space-x-2 text-sm">
-            <a href="/" className="text-gray-500 hover:text-primary transition-colors">
+            <Link href="/" className="text-gray-500 hover:text-primary transition-colors">
               ホーム
-            </a>
+            </Link>
             <span className="text-gray-400">/</span>
-            <a href="/products" className="text-gray-500 hover:text-primary transition-colors">
+            <Link href="/products" className="text-gray-500 hover:text-primary transition-colors">
               商品一覧
-            </a>
+            </Link>
             <span className="text-gray-400">/</span>
             <span className="text-gray-900 font-medium">
               {product.name}
@@ -55,10 +57,11 @@ export default function ProductPage({ params }: ProductPageProps) {
               .map(relatedProduct => (
                 <div key={relatedProduct.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div className="aspect-square bg-gray-100 relative">
-                    <img
+                    <Image
                       src={relatedProduct.images[0]}
                       alt={relatedProduct.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <div className="p-4">

@@ -17,10 +17,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ 
-  product, 
-  variant = 'grid',
+  product,
   showQuickView = true,
-  showCompare = false,
   showWishlist = true
 }: ProductCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false)

@@ -25,7 +25,7 @@ interface ProductDetailProps {
   onClose?: () => void
 }
 
-export default function ProductDetail({ product, onClose }: ProductDetailProps) {
+export default function ProductDetail({ product }: ProductDetailProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0])
   const [quantity, setQuantity] = useState(1)
