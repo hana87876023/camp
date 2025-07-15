@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Filter, Grid, List, Search } from 'lucide-react'
 import ProductCard from '@/components/ui/ProductCard'
 import { mockProducts, productCategories, priceRanges } from '@/data/products'
+import ScrollAnimation from '@/components/animations/ScrollAnimation'
+import AnimatedButton from '@/components/animations/AnimatedButton'
 
 export default function ProductsSection() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -90,20 +92,14 @@ export default function ProductsSection() {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <ScrollAnimation animation="fadeInUp" className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-heading-bold text-gray-900 mb-4">
             おすすめ商品
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             厳選されたキャンプ用品で、あなたの冒険をより快適に
           </p>
-        </motion.div>
+        </ScrollAnimation>
 
         {/* Search Bar */}
         <motion.div
@@ -326,21 +322,15 @@ export default function ProductsSection() {
 
         {/* View All Button */}
         {filteredProducts.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-12"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary-700 transition-colors"
+          <ScrollAnimation animation="scaleIn" className="text-center mt-12">
+            <AnimatedButton
+              variant="primary"
+              animation="bounce"
+              className="px-8 py-3 rounded-full font-medium"
             >
               すべての商品を見る
-            </motion.button>
-          </motion.div>
+            </AnimatedButton>
+          </ScrollAnimation>
         )}
       </div>
     </section>

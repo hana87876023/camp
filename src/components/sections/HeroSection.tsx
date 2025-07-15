@@ -1,12 +1,18 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, Mountain, Tent, Compass } from 'lucide-react'
 import Link from 'next/link'
+import anime from 'animejs'
+import AnimatedButton from '@/components/animations/AnimatedButton'
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const subtitleRef = useRef<HTMLHeadingElement>(null)
+  const descriptionRef = useRef<HTMLParagraphElement>(null)
+  const buttonsRef = useRef<HTMLDivElement>(null)
 
   const slides = [
     {
@@ -45,6 +51,41 @@ export default function HeroSection() {
 
     return () => clearInterval(timer)
   }, [slides.length])
+
+  // AnimeJSでコンテンツアニメーション
+  useEffect(() => {
+    const timeline = anime.timeline({
+      easing: 'easeOutExpo',
+      duration: 800
+    })
+
+    timeline
+      .add({
+        targets: titleRef.current,
+        opacity: [0, 1],
+        translateY: [50, 0],
+        delay: 500
+      })
+      .add({
+        targets: subtitleRef.current,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        delay: 200
+      }, '-=600')
+      .add({
+        targets: descriptionRef.current,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        delay: 300
+      }, '-=600')
+      .add({
+        targets: buttonsRef.current,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        delay: 400
+      }, '-=600')
+
+  }, [currentSlide])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -147,62 +188,54 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Title */}
-            <motion.h1
-              variants={itemVariants}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-heading font-heading-bold mb-4"
+            <h1
+              ref={titleRef}
+              className="text-4xl md:text-6xl lg:text-7xl font-heading font-heading-bold mb-4 opacity-0"
             >
               {slides[currentSlide].title}
-            </motion.h1>
+            </h1>
 
             {/* Subtitle */}
-            <motion.h2
-              variants={itemVariants}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="text-xl md:text-2xl lg:text-3xl font-heading font-heading-light mb-6 text-accent"
+            <h2
+              ref={subtitleRef}
+              className="text-xl md:text-2xl lg:text-3xl font-heading font-heading-light mb-6 text-accent opacity-0"
             >
               {slides[currentSlide].subtitle}
-            </motion.h2>
+            </h2>
 
             {/* Description */}
-            <motion.p
-              variants={itemVariants}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
+            <p
+              ref={descriptionRef}
+              className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed opacity-0"
             >
               {slides[currentSlide].description}
-            </motion.p>
+            </p>
 
             {/* CTA Button */}
-            <motion.div
-              variants={itemVariants}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-              className="flex justify-center space-x-4"
+            <div
+              ref={buttonsRef}
+              className="flex justify-center space-x-4 opacity-0"
             >
-              <Link
-                href={slides[currentSlide].ctaLink}
-                className="group relative overflow-hidden"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-primary text-white rounded-full font-medium text-lg transition-all duration-300 hover:bg-primary-700 hover:shadow-xl"
+              <Link href={slides[currentSlide].ctaLink}>
+                <AnimatedButton
+                  variant="primary"
+                  animation="bounce"
+                  className="px-8 py-4 text-lg rounded-full"
                 >
-                  <span className="relative z-10">{slides[currentSlide].cta}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.button>
+                  {slides[currentSlide].cta}
+                </AnimatedButton>
               </Link>
 
               <Link href="/about">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-white text-white rounded-full font-medium text-lg transition-all duration-300 hover:bg-white hover:text-primary"
+                <AnimatedButton
+                  variant="ghost"
+                  animation="pulse"
+                  className="px-8 py-4 text-lg rounded-full border-white text-white hover:bg-white hover:text-primary"
                 >
                   詳しく見る
-                </motion.button>
+                </AnimatedButton>
               </Link>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

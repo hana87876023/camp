@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { CartProvider } from "@/store/CartContext";
 import CartSidebar from "@/components/ui/CartSidebar";
+import ClientLayout from "@/components/ClientLayout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -83,14 +84,16 @@ export default function RootLayout({
         <meta name="theme-color" content="#2D5016" />
       </head>
       <body className="font-body antialiased">
-        <CartProvider>
-          <Header />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <CartSidebar />
-        </CartProvider>
+        <ClientLayout>
+          <CartProvider>
+            <Header />
+            <main className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <CartSidebar />
+          </CartProvider>
+        </ClientLayout>
       </body>
     </html>
   );
