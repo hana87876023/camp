@@ -13,6 +13,7 @@ import {
   Mountain
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useCart } from '@/store/CartContext'
 
 interface HeaderProps {
   className?: string
@@ -22,6 +23,7 @@ export default function Header({ className }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const { state, toggleCart } = useCart()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -175,12 +177,15 @@ export default function Header({ className }: HeaderProps) {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              onClick={toggleCart}
               className="relative p-2 text-gray-700 hover:text-primary transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-accent text-white text-xs rounded-full flex items-center justify-center">
-                2
-              </span>
+              {state.totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-accent text-white text-xs rounded-full flex items-center justify-center">
+                  {state.totalItems > 99 ? '99+' : state.totalItems}
+                </span>
+              )}
             </motion.button>
 
             {/* Mobile Menu Button */}

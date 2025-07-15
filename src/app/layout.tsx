@@ -3,6 +3,8 @@ import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { CartProvider } from "@/store/CartContext";
+import CartSidebar from "@/components/ui/CartSidebar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,11 +83,14 @@ export default function RootLayout({
         <meta name="theme-color" content="#2D5016" />
       </head>
       <body className="font-body antialiased">
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <CartSidebar />
+        </CartProvider>
       </body>
     </html>
   );

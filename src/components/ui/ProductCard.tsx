@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { Heart, ShoppingCart, Star, Eye } from 'lucide-react'
 import { Product } from '@/types'
 import { formatPrice } from '@/lib/utils'
+import { useCart } from '@/store/CartContext'
 
 interface ProductCardProps {
   product: Product
@@ -25,6 +26,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const { addItem, openCart } = useCart()
 
   const handleWishlist = () => {
     setIsWishlisted(!isWishlisted)
@@ -36,9 +38,11 @@ export default function ProductCard({
     }
   }
 
-  const handleAddToCart = () => {
-    // Add to cart logic
-    console.log('Add to cart:', product.id)
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    addItem(product, 1)
+    openCart()
   }
 
   return (
