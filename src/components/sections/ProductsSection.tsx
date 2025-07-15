@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Filter, Grid, List, Search } from 'lucide-react'
 import ProductCard from '@/components/ui/ProductCard'
 import { mockProducts, productCategories, priceRanges } from '@/data/products'
-import { Product } from '@/types'
 
 export default function ProductsSection() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -16,7 +15,7 @@ export default function ProductsSection() {
   const [showFilters, setShowFilters] = useState(false)
 
   const filteredProducts = useMemo(() => {
-    let filtered = mockProducts.filter(product => {
+    const filtered = mockProducts.filter(product => {
       // Category filter
       if (selectedCategory !== 'all' && product.category.id !== selectedCategory) {
         return false
